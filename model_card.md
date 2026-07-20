@@ -2,8 +2,7 @@
 
 ## 1. Model Name  
 
-Give your model a short, descriptive name.  
-Example: **VibeFinder 1.0**  
+Model Name: Tune2Tune
 
 ---
 
@@ -70,6 +69,7 @@ Prompts:
 - Cases where the system overfits to one preference  
 - Ways the scoring might unintentionally favor some users  
 
+One major limitation within the system is that the energy gap is what essentially decides the overall ranking and is the main filter bubble. For example, if a profile of someone who enjoys metal music and a fan who enjoys pop tries to get song recommendations, their lists would be nearly identical because their genre preference is lower in priority in comparison to the energy level. The energy gap ignores users whose genre taste doesn't correlate with their energy target.
 ---
 
 ## 7. Evaluation  
@@ -83,7 +83,7 @@ Prompts:
 - What surprised you  
 - Any simple tests or comparisons you ran  
 
-No need for numeric metrics unless you created some.
+In my experiment, I have tested three profiles: High energy pop, chill lofi, and deep intense rock. All three profiles had the same exact song recommendations as well as the same order of the songs. The only difference between the original output with the experimental output is the scoring difference. Surprisingly, the scores of the experimental output came out to be much higher than the original output scores, typically ranging 1-2 points higher than the original score. 
 
 ---
 

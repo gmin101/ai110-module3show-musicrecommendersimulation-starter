@@ -69,8 +69,6 @@ You can add more tests in `tests/test_recommender.py`.
 
 ## Sample Recommendation Output
 
-Paste a sample of your recommender's output here as a text block so a reader can see what it produces:
-
 ```
 Top 5 Recommendations
 For profile: genre=pop, mood=happy, energy=0.8
@@ -105,8 +103,113 @@ Why:
 - energy 0.75 vs target 0.80 (+1.42)
 ```
 
-**Screenshot or video** *(optional)*: <!-- Insert a screenshot or demo video link here -->
+```
+Top 5 Recommendations
+For profile: genre=pop, mood=happy, energy=0.9
 
+1. Sunrise City - Neon Echo
+Score: 4.38
+Why:
+- genre match: pop (+2.0)
+- mood match: happy (+1.0)
+- energy 0.82 vs target 0.90 (+1.38)
+
+2. Gym Hero - Max Pulse
+Score: 3.46
+Why:
+- genre match: pop (+2.0)
+- energy 0.93 vs target 0.90 (+1.46)
+
+3. Rooftop Lights - Indigo Parade
+Score: 2.29
+Why:
+- mood match: happy (+1.0)
+- energy 0.76 vs target 0.90 (+1.29)
+
+4. Storm Runner - Voltline
+Score: 1.48
+Why:
+- energy 0.91 vs target 0.90 (+1.48)
+
+5. Concrete Kings - Blockwise
+Score: 1.47
+Why:
+- energy 0.88 vs target 0.90 (+1.47)
+```
+
+```
+Top 5 Recommendations
+For profile: genre=lofi, mood=chill, energy=0.4
+
+1. Midnight Coding - LoRoom
+Score: 4.97
+Why:
+- genre match: lofi (+2.0)
+- mood match: chill (+1.0)
+- energy 0.42 vs target 0.40 (+1.47)
+- acoustic match: acousticness 0.71 (+0.5)
+
+2. Library Rain - Paper Lanterns
+Score: 4.92
+Why:
+- genre match: lofi (+2.0)
+- mood match: chill (+1.0)
+- energy 0.35 vs target 0.40 (+1.42)
+- acoustic match: acousticness 0.86 (+0.5)
+
+3. Focus Flow - LoRoom
+Score: 4.00
+Why:
+- genre match: lofi (+2.0)
+- energy 0.40 vs target 0.40 (+1.50)
+- acoustic match: acousticness 0.78 (+0.5)
+
+4. Spacewalk Thoughts - Orbit Bloom
+Score: 2.82
+Why:
+- mood match: chill (+1.0)
+- energy 0.28 vs target 0.40 (+1.32)
+- acoustic match: acousticness 0.92 (+0.5)
+
+5. Coffee Shop Stories - Slow Stereo
+Score: 1.96
+Why:
+- energy 0.37 vs target 0.40 (+1.46)
+- acoustic match: acousticness 0.89 (+0.5)
+```
+
+```
+Top 5 Recommendations
+For profile: genre=rock, mood=intense, energy=0.9
+
+1. Storm Runner - Voltline
+Score: 4.48
+Why:
+- genre match: rock (+2.0)
+- mood match: intense (+1.0)
+- energy 0.91 vs target 0.90 (+1.48)
+
+2. Gym Hero - Max Pulse
+Score: 2.46
+Why:
+- mood match: intense (+1.0)
+- energy 0.93 vs target 0.90 (+1.46)
+
+3. Concrete Kings - Blockwise
+Score: 1.47
+Why:
+- energy 0.88 vs target 0.90 (+1.47)
+
+4. Pulse Reactor - Voltage Kids
+Score: 1.41
+Why:
+- energy 0.96 vs target 0.90 (+1.41)
+
+5. Groove Machine - The Funk Theory
+Score: 1.40
+Why:
+- energy 0.83 vs target 0.90 (+1.40)
+```
 ---
 
 ## Experiments You Tried

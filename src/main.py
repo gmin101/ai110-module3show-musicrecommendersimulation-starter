@@ -19,7 +19,8 @@ def main() -> None:
     songs = load_songs("data/songs.csv")
 
     # Starter example profile
-    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+    # user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.90}
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
     profile = f"genre={user_prefs['genre']}, mood={user_prefs['mood']}, energy={user_prefs['energy']}"
@@ -35,6 +36,13 @@ def main() -> None:
             print(f"- {reason}")
 
     print()
+
+
+    """
+    "High-Energy Pop": {"genre": "pop", "mood": "happy", "energy": 0.90},
+    "Chill Lofi": {"genre": "lofi", "mood": "chill", "energy": 0.40, "likes_acoustic": True},
+    "Deep Intense Rock": {"genre": "rock", "mood": "intense", "energy": 0.90},
+    """
 
 
 if __name__ == "__main__":
