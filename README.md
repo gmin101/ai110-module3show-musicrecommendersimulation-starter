@@ -214,38 +214,17 @@ Why:
 
 ## Experiments You Tried
 
-Use this section to document the experiments you ran. For example:
-
-- What happened when you changed the weight on genre from 2.0 to 0.5
-- What happened when you added tempo or valence to the score
-- How did your system behave for different types of users
+For my experiment, I changed the weight of the energy level to be a maximum of three points and halved the importance of genre to one point. 
 
 ---
 
 ## Limitations and Risks
 
-Summarize some limitations of your recommender.
-
-Examples:
-
-- It only works on a tiny catalog
-- It does not understand lyrics or language
-- It might over favor one genre or mood
-
-You will go deeper on this in your model card.
+The catalog is very small, meaning that there won't be much variability between different users who have similar profiles and the recommendations that they receive. Additionally, the recommender uses purely math to decide which songs to recommend, which may not always give the most accurate recommendations, given the songs from the dictionary.
 
 ---
 
 ## Reflection
 
-Read and complete `model_card.md`:
-
-[**Model Card**](model_card.md)
-
-Write 1 to 2 paragraphs here about what you learned:
-
-- about how recommenders turn data into predictions
-- about where bias or unfairness could show up in systems like this
-
-
+Without a proper metric in place to depict what song is truly "rock" and what song is "pop", numbers alone can create bias in systems like these, therefore creating recommendations that are not entirely accurate. This is why having a large dataset as well as having well defined metrics for differenting the different songs is very important.
 
