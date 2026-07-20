@@ -23,26 +23,19 @@ def main() -> None:
     user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
-
-    # --- Formatted output -------------------------------------------------
     profile = f"genre={user_prefs['genre']}, mood={user_prefs['mood']}, energy={user_prefs['energy']}"
 
     print()
-    print("=" * 60)
-    print(f"  TOP {len(recommendations)} RECOMMENDATIONS")
-    print(f"  For profile: {profile}")
-    print("=" * 60)
-
+    print(f"Top {len(recommendations)} Recommendations")
+    print(f"For profile: {profile}")
     for rank, (song, score, explanation) in enumerate(recommendations, start=1):
-        print(f"\n  {rank}. {song['title']} — {song['artist']}")
-        print(f"     Score: {score:.2f}")
-        print(f"     Why:")
-        # explanation is a "; "-joined string of individual reasons
+        print(f"\n{rank}. {song['title']} - {song['artist']}")
+        print(f"Score: {score:.2f}")
+        print(f"Why:")
         for reason in explanation.split("; "):
-            print(f"       • {reason}")
+            print(f"- {reason}")
 
     print()
-    print("=" * 60)
 
 
 if __name__ == "__main__":
