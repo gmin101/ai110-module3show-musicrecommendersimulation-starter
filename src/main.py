@@ -17,7 +17,6 @@ except ImportError:  # allows both `python src/main.py` and `python -m src.main`
 
 def main() -> None:
     songs = load_songs("data/songs.csv")
-    print(f"Loaded songs: {len(songs)}")
 
     # Starter example profile
     user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}

@@ -48,14 +48,8 @@ class Recommender:
 
 def load_songs(csv_path: str) -> List[Dict]:
     """
-    Loads songs from a CSV file into a list of dictionaries.
-
-    Numeric columns are converted from strings so they can be used in
-    scoring math later: `id` and `tempo_bpm` become ints, and the audio
-    features (energy, valence, danceability, acousticness) become floats.
-    Text columns (title, artist, genre, mood) are left as strings.
-
-    Required by src/main.py
+    Load songs from a CSV file into a list of dicts, 
+    casting numeric columns to int/float.
     """
     int_fields = {"id", "tempo_bpm"}
     float_fields = {"energy", "valence", "danceability", "acousticness"}
@@ -78,18 +72,7 @@ def load_songs(csv_path: str) -> List[Dict]:
 
 def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     """
-    Scores a single song against user preferences.
-
-    Uses the finalized additive recipe (max 5.0 points):
-      - genre match:      +2.0
-      - mood match:       +1.0
-      - energy similarity: +1.5 * (1 - |song energy - target energy|)
-      - acoustic match:   +0.5  (if the user likes acoustic and the song is)
-
-    Returns the numeric score plus a list of human-readable reasons so the
-    recommendation can be explained.
-
-    Required by recommend_songs() and src/main.py
+    Score one song against user preferences, returning (score, reasons).
     """
     score = 0.0
     reasons: List[str] = []
@@ -123,17 +106,8 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
 
 def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
     """
-    Ranks the whole catalog against the user's preferences and returns the
-    top k recommendations.
-
-    Steps:
-      1. Judge every song with score_song() to get (score, reasons).
-      2. Sort all songs by score, highest first (ties broken by title so the
-         ordering is deterministic and reproducible in tests).
-      3. Join each song's reasons into a single explanation string.
-      4. Return the top k as (song, score, explanation) tuples.
-
-    Required by src/main.py
+    Score every song, sort by score (highest first), and return 
+    the top k as (song, score, explanation) tuples.
     """
     scored: List[Tuple[Dict, float, str]] = []
     for song in songs:
