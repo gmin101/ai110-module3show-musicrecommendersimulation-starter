@@ -27,8 +27,9 @@ Some prompts to answer:
 - How does your `Recommender` compute a score for each song
 - How do you choose which songs to recommend
 
-You can include a simple diagram or bullet list if helpful.
+In my system, each song is described by a genre and mood (category labels) as well as numeric audio measurements like energy, tempo, valence, danceability, and acousticness. The UserProfile doesn't store a favorite song but the qualities a user wants: their favorite genre, favorite mood, a target energy level (0-1), and whether they like acoustic music. To score a song, the Recommender measures how closely it matches those preferences: for energy it rewards songs near the target using 1 - |song energy - target energy|, and for genre, mood, and acoustic-ness it awards points for a match. Each part is multiplied by a weight that reflects its importance - energy 0.40, genre 0.30, acoustic 0.20, and mood 0.10 (genre outranks mood because it's a stronger taste signal and mood is already partly reflected in energy) - and the weighted parts add up to a single score from 0 to 1. Finally, to choose recommendations, I score every song, sort them from highest to lowest, and return the top k (default is 5).
 
+In regards to some potential biases, genres that appear only once in the catalog (classical, metal, funk) give niche tastes fewer good matches than mainstream ones. Additionally, the acoustic preference only adds points, never subtracts, so disliking acoustic music has no effect.
 ---
 
 ## Getting Started
